@@ -1,5 +1,11 @@
-package com.tgt.igniteplus;
+/*
+Command line Interface to demonstrate the use of collections
+1) User should be able to create,delete,update and display department and its employees
+2)Each and every department should have atleast one employee
+3)Department can have more than one ignite member
+*/
 
+package com.tgt.igniteplus;
 import java.util.*;
 
 public class CLI {
@@ -36,7 +42,7 @@ public class CLI {
         int ans;
         do {
             int choice;
-            System.out.println("Select your choice: 1 for Adding \t 2 for Deleteing \t 3 for Displaying ");
+            System.out.println("Select your choice: 1 for Adding \t 2 for Deleting \t 3 for Displaying ");
             choice = in.nextInt();
             switch (choice) {
                 case 1:
@@ -71,3 +77,21 @@ public class CLI {
     }
 
 }
+
+/*
+Output:
+Select your choice: 1 for Adding 	 2 for Deleting 	 3 for Displaying
+3
+This is the list of existing members and the departments they belong to:
+Department Name: Data Science
+-----------------------------------
+Name: Sam
+Skill Set is [Java, SQL, DS]
+-----------------------------------
+Department Name: Infrastructure
+-----------------------------------
+Name: Sammy
+Skill Set is [Linux, PSQL, Scripting]
+-----------------------------------
+Do you want to continue: Enter 1 for Yes and Enter 0 for No
+ */
