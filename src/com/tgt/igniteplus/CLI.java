@@ -90,13 +90,13 @@ public class CLI {
         int ch = in.nextInt();
         if (dept == 1) {
             switch (ch) {
-                case 1: dataScience.add(new collections("Sammy", "VIT", 20, skillSet1));
+                case 1: dataScience.add(new collections(name,college ,age, skillSet1));
                     break;
-                case 2:dataScience.add(new collections("Sammy", "VIT", 20, skillSet2));
+                case 2:dataScience.add(new collections(name, college, age, skillSet2));
                     break;
-                case 3:dataScience.add(new collections("Sammy", "VIT", 20, skillSet3));
+                case 3:dataScience.add(new collections(name, college, age, skillSet3));
                     break;
-                case 4:dataScience.add(new collections("Sammy", "VIT", 20, skillSet4));
+                case 4:dataScience.add(new collections(name, college, age, skillSet4));
                     break;
                 default:
             }
@@ -104,13 +104,13 @@ public class CLI {
         if(dept==2)
         {
             switch (ch) {
-                case 1:infrastructure.add(new collections("Sammy", "VIT", 20, skillSet1));
+                case 1:infrastructure.add(new collections(name, college,age, skillSet1));
                     break;
-                case 2:infrastructure.add(new collections("Sammy", "VIT", 20, skillSet2));
+                case 2:infrastructure.add(new collections(name, college, age, skillSet2));
                     break;
-                case 3:infrastructure.add(new collections("Sammy", "VIT", 20, skillSet3));
+                case 3:infrastructure.add(new collections(name, college, age, skillSet3));
                     break;
-                case 4:infrastructure.add(new collections("Sammy", "VIT", 20, skillSet4));
+                case 4:infrastructure.add(new collections(name, college, age, skillSet4));
                     break;
                 default:
             }
@@ -170,7 +170,7 @@ Department Name: Data Science
 -----------------------------------
 Name: Sam
 Skill Set is [Java, SQL, DS]
-Name: Sammy
+Name: Sanmati
 Skill Set is [Java, NoSQL, Machine Learning]
 -----------------------------------
 Department Name: Infrastructure
