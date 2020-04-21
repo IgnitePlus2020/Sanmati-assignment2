@@ -5,14 +5,19 @@ import java.util.*;
 public class CLI {
     static List<String> dept = new ArrayList<>();
     static Map<String,List<collections>> emp= new HashMap<>();
-    static List<collections> coll = new ArrayList<>();
     static Set<String> skillSet = new HashSet<>();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int ans,choice;
         do{
-            System.out.println("Choose among the following options by pressing the appropriate number\n1:Creating a new department\n2:Deleting an existing department\n3:Displaying the details of all the employees in the departments\n4:Creating and adding a new employee into an existing department");
+            System.out.println("Choose among the following options by pressing the appropriate number\n" +
+                    "1:Creating a new department\n" +
+                    "2:Deleting an existing department\n" +
+                            "3:Display all the departments\n"+
+                    "4:Displaying the details of all the employees in the departments\n" +
+                    "5:Creating and adding a new employee into an existing department\n" +
+                    "6:Swapping the department of any employee");
             choice= in.nextInt();
             switch(choice)
             {
@@ -20,9 +25,13 @@ public class CLI {
                         break;
                 case 2:deleteDept();
                         break;
-                case 3:display();
+                case 3:displayDept();
                         break;
-                case 4:addemp();
+                case 4:display();
+                        break;
+                case 5:addEmp();
+                        break;
+                case 6:swapEmp();
                         break;
                 default:
             }
@@ -47,6 +56,11 @@ public class CLI {
         emp.put(dep,null);
         dept.add(dep);
         System.out.println("Department added");
+        //System.out.println("Do you want to add members to the this department? \n Press 1 for YES and 0 for NO");
+        //int choice=in.nextInt();
+        //if(choice==1)
+            //addEmp();
+
     }
     public static void deleteDept(){
         Scanner in = new Scanner(System.in);
@@ -60,7 +74,17 @@ public class CLI {
         else
             System.out.println("Department does not exist");
     }
-    public static void addemp(){
+    public static void displayDept(){
+        if(dept.isEmpty())
+            System.out.println("No departments exist");
+        else{
+            System.out.println("The existing departments are ");
+            for(String dep:dept)
+                System.out.println(dep+ "\n");
+        }
+
+    }
+    public static void addEmp(){
         Scanner in= new Scanner(System.in);
         System.out.println("Enter the name of the employee");
         String name =in.nextLine();
@@ -69,12 +93,31 @@ public class CLI {
         System.out.println("Enter the age of the employee");
         int age=in.nextInt();
         System.out.println("Enter skillset of the employee(Type done after you are done)");
-        String ss=in.nextLine();
-        skillSet.add(ss);
+        String ss;
+        while(!(ss=in.nextLine()).equals("done"))
+            skillSet.add(ss);
+        List<collections> coll = new ArrayList<>();
         coll.add(new collections(name,college,age,skillSet));
+        displayDept();
         System.out.println("Enter the department in which the employee should be added");
         String dep= in.nextLine();
         if(dept.contains(dep))
             emp.put(dep,coll);
+        else
+            System.out.println("Sorry department does not exist");
+    }
+    static public void swapEmp(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("This is the list of departments ");
+        for(String dep: dept)
+            System.out.println(dep + "\n");
+        System.out.println("Enter the old department from which you want to move the employee");
+        String dep1= in.nextLine();
+        System.out.println("The employees in this department are");
+        if(emp.containsKey(dep1))
+            System.out.println();
+        System.out.println("Enter the new department into which the employee should be added into");
+        String dep2 = in.nextLine();
+
     }
 }
