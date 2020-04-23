@@ -1,6 +1,6 @@
 //To remove hyphen from string only if it in between digits
 
-package com.tgt.igniteplus;
+package com.tgt.igniteplus.strings;
 import java.util.Scanner;
 
 public class removeHyphen {

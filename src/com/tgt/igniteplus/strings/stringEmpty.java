@@ -1,6 +1,6 @@
 //To check if the string entered is empty or not
 
-package com.tgt.igniteplus;
+package com.tgt.igniteplus.strings;
 import java.util.Scanner;
 
 public class stringEmpty {

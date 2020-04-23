@@ -1,6 +1,6 @@
 //To find the length of the entered string
 
-package com.tgt.igniteplus;
+package com.tgt.igniteplus.strings;
 import java.util.Scanner;
 
 public class stringLength {

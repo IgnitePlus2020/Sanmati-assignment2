@@ -1,6 +1,6 @@
 //Different ways to compare two strings
 
-package com.tgt.igniteplus;
+package com.tgt.igniteplus.strings;
 import java.util.Scanner;
 
 public class stringCompare {
@@ -21,25 +21,25 @@ public class stringCompare {
         else
             System.out.println("The strings are not equal");
 
+        System.out.println("Using equalsIgnoreCase() method");
+        if(str1.equalsIgnoreCase(str2))
+            System.out.println("The strings are equal");
+        else
+            System.out.println("The strings are not equal");
+
     }
 }
 
 /*
 Output:
 1)Enter two strings
-Sanmati
-SAmmy
+sam
+SAm
 Let's check if these strings are identical
 Using compareTo() method
 The strings are not equal
 Using equals() method
 The strings are not equal
-2)Enter two strings
-avengers
-avengers
-Let's check if these strings are identical
-Using compareTo() method
-The strings are equal
-Using equals() method
+Using equalsIgnoreCase() method
 The strings are equal
  */
