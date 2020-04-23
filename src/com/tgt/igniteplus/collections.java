@@ -6,13 +6,15 @@ import java.util.Set;
 public class collections {
     private String name;
     private String college;
+    private String department;
     private int age;
     private Set<String> skillSet;
 
-    public collections(String name,String college, int age, Set<String>skillSet)
+    public collections(String name,String college,String department, int age, Set<String>skillSet)
     {
         this.name = name;
         this.college=college;
+        this.department=department;
         this.age=age;
         this.skillSet=skillSet;
     }
@@ -31,6 +33,14 @@ public class collections {
     public void setCollege(String college) {
         this.college = college;
     }
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.college = department;
+    }
+
 
     public int getAge() {
         return age;

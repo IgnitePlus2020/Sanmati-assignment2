@@ -1,11 +1,13 @@
 package com.tgt.igniteplus;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CLI {
     static List<String> dept = new ArrayList<>();
     static Map<String,List<collections>> emp= new HashMap<>();
     static Set<String> skillSet = new HashSet<>();
+    static List<collections> empObj = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -44,8 +46,9 @@ public class CLI {
         for(String dep: emp.keySet()){
             System.out.println("Department name: "+ dep);
             System.out.println("***************************************");
-            for(collections i: emp.get(dep))
-                System.out.println(i.print());
+            for(collections mem : empObj) {
+                System.out.println(mem.getName() + "\t" + mem.getSkillSet());
+            }
             System.out.println("********************************************");
         }
     }
@@ -88,6 +91,14 @@ public class CLI {
         Scanner in= new Scanner(System.in);
         System.out.println("Enter the name of the employee");
         String name =in.nextLine();
+        do {
+            for (collections im : empObj) {
+                if (im.getName().contains(name)) {
+                    System.out.print("\nName already exists!\n" + "Enter a UNIQUE name:\t");
+                    name = in.next();
+                }
+            }
+        } while (empObj.contains(name));
         System.out.println("Enter the college of the employee");
         String college = in.nextLine();
         System.out.println("Enter the age of the employee");
@@ -96,28 +107,27 @@ public class CLI {
         String ss;
         while(!(ss=in.nextLine()).equals("done"))
             skillSet.add(ss);
-        List<collections> coll = new ArrayList<>();
-        coll.add(new collections(name,college,age,skillSet));
         displayDept();
         System.out.println("Enter the department in which the employee should be added");
         String dep= in.nextLine();
-        if(dept.contains(dep))
-            emp.put(dep,coll);
-        else
-            System.out.println("Sorry department does not exist");
+        empObj.add(new collections(name, college, dep, age,skillSet));
     }
     static public void swapEmp(){
         Scanner in = new Scanner(System.in);
+        System.out.println("Enter the name of employee you want to move into another department");
+        String empName=in.nextLine();
         System.out.println("This is the list of departments ");
         for(String dep: dept)
             System.out.println(dep + "\n");
-        System.out.println("Enter the old department from which you want to move the employee");
-        String dep1= in.nextLine();
-        System.out.println("The employees in this department are");
-        if(emp.containsKey(dep1))
-            System.out.println();
+        System.out.println("Enter the old department from which the employee should be removed from");
+        String dep1 = in.nextLine();
         System.out.println("Enter the new department into which the employee should be added into");
         String dep2 = in.nextLine();
+        for (collections im : empObj) {
+            if (im.getName().contains(empName))
+                im.setDepartment(dep2);
+        }
+
 
     }
 }
