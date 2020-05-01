@@ -8,10 +8,11 @@ public class characterRemoval {
         System.out.println("Enter a string");
         Scanner in = new Scanner(System.in);
         String str= in.nextLine();
-        System.out.println("Enter the character you want to remove in lowercase");
+        System.out.println("Enter the character you want to remove");
         String ch = in.nextLine();
         int i=0;
         str= str.replace(ch, "");
+        str=str.replace(ch.tolowerCase(),"");
         str = str.replace(ch.toUpperCase(),"");
         System.out.println("The string after character removal is " + str);
     }
