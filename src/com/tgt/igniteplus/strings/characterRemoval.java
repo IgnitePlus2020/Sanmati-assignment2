@@ -11,8 +11,7 @@ public class characterRemoval {
         System.out.println("Enter the character you want to remove");
         String ch = in.nextLine();
         int i=0;
-        str=str.replace(ch.tolowerCase(),"");
-        str = str.replace(ch.toUpperCase(),"");
+        str= str.replaceall(ch,"");
         System.out.println("The string after character removal is " + str);
     }
 }
